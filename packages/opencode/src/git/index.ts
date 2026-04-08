@@ -7,13 +7,13 @@ export namespace Git {
   const cfg = [
     "--no-optional-locks",
     "-c",
-    "core.autocrlf=false",
+    "core.autocrlf=true",
     "-c",
     "core.fsmonitor=false",
     "-c",
     "core.longpaths=true",
     "-c",
-    "core.symlinks=true",
+    "core.symlinks=false",
     "-c",
     "core.quotepath=false",
   ] as const

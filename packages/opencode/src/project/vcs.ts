@@ -26,7 +26,7 @@ export namespace Vcs {
     if (!(yield* fs.exists(full).pipe(Effect.orDie))) return ""
     const buf = yield* fs.readFile(full).pipe(Effect.catch(() => Effect.succeed(new Uint8Array())))
     if (Buffer.from(buf).includes(0)) return ""
-    return Buffer.from(buf).toString("utf8")
+    return Buffer.from(buf).toString("utf8").replace(/\r\n?/g, "\n")
   })
 
   const nums = (list: Git.Stat[]) =>
